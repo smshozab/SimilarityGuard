@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimilarityGuard Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <span class="logo-icon"></span>
+        <h1>SimilarityGuard Settings</h1>
+      </div>
+    </header>
+    
+    <main>
+      <div class="settings-section">
+        <h2>Detection Settings</h2>
+        
+        <div class="setting-group">
+          <label for="threshold-slider">Similarity Threshold</label>
+          <div class="threshold-control">
+            <input type="range" id="threshold-slider" min="50" max="95" value="80" step="5">
+            <span id="threshold-value">80%</span>
+          </div>
+          <p class="setting-description">
+            Adjust how sensitive the detection should be. Higher values will only flag text with greater similarity to known content.
+          </p>
+        </div>
+        
+        <div class="setting-group">
+          <label>Detection Sources</label>
+          <div class="checkbox-options">
+            <label class="checkbox-label">
+              <input type="checkbox" name="detection-sources" value="ai-generated" checked>
+              <span class="checkbox-text">AI-generated content</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="detection-sources" value="web-content" checked>
+              <span class="checkbox-text">Web content</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="detection-sources" value="academic" checked>
+              <span class="checkbox-text">Academic sources</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h2>Notification Settings</h2>
+        
+        <div class="setting-group">
+          <label>Notification Style</label>
+          <div class="radio-options">
+            <label class="radio-label">
+              <input type="radio" name="notification-style" value="detailed" checked>
+              <span class="radio-text">Detailed</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="notification-style" value="minimal">
+              <span class="radio-text">Minimal</span>
+            </label>
+          </div>
+          <p class="setting-description">
+            Choose how notifications appear when similarity is detected.
+          </p>
+        </div>
+        
+        <div class="setting-group">
+          <label>Auto-hide Notifications</label>
+          <div class="radio-options">
+            <label class="radio-label">
+              <input type="radio" name="notification-hide" value="10" checked>
+              <span class="radio-text">After 10 seconds</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="notification-hide" value="30">
+              <span class="radio-text">After 30 seconds</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="notification-hide" value="0">
+              <span class="radio-text">Never</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-group">
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+              <input type="checkbox" id="play-sound" checked>
+              <span class="checkbox-text">Play sound on detection</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h2>Advanced Settings</h2>
+        
+        <div class="setting-group">
+          <label>Monitored Editors</label>
+          <div class="checkbox-options">
+            <label class="checkbox-label">
+              <input type="checkbox" name="monitored-editors" value="google-docs" checked>
+              <span class="checkbox-text">Google Docs</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="monitored-editors" value="microsoft-word" checked>
+              <span class="checkbox-text">Microsoft Word Online</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="monitored-editors" value="text-inputs" checked>
+              <span class="checkbox-text">Text inputs & contentEditable elements</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-group">
+          <label for="min-sentence-length">Minimum Sentence Length</label>
+          <div class="input-container">
+            <input type="number" id="min-sentence-length" min="5" max="30" value="10">
+            <span class="input-suffix">words</span>
+          </div>
+          <p class="setting-description">
+            Sentences shorter than this will not be checked for similarity.
+          </p>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button id="save-button" class="primary-button">Save Settings</button>
+        <button id="reset-button" class="secondary-button">Reset to Defaults</button>
+      </div>
+    </main>
+    
+    <footer>
+      <p>SimilarityGuard v1.0.0</p>
+    </footer>
+  </div>
+  
+  <script src="options.js" type="module"></script>
+</body>
+</html>

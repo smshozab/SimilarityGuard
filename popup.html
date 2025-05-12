@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimilarityGuard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <span class="logo-icon"></span>
+        <h1>SimilarityGuard</h1>
+      </div>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="extension-toggle" checked>
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label">Enabled</span>
+      </div>
+    </header>
+    
+    <main>
+      <div class="tab-nav">
+        <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+        <button class="tab-button" data-tab="history">History</button>
+        <button class="tab-button" data-tab="settings">Settings</button>
+      </div>
+      
+      <div class="tab-content">
+        <!-- Dashboard Tab -->
+        <div class="tab-pane active" id="dashboard-tab">
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-value" id="current-page-detections">0</div>
+              <div class="stat-label">Current page</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="today-detections">0</div>
+              <div class="stat-label">Today</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="total-detections">0</div>
+              <div class="stat-label">Total</div>
+            </div>
+          </div>
+          
+          <div class="current-site">
+            <h2>Current Site</h2>
+            <div class="site-info">
+              <span id="current-site-name">Not available</span>
+              <label class="site-toggle">
+                <input type="checkbox" id="site-toggle" checked>
+                <span class="site-slider"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="recent-detections">
+            <h2>Recent Detections</h2>
+            <div id="recent-list" class="detection-list">
+              <div class="empty-state">No recent detections</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- History Tab -->
+        <div class="tab-pane" id="history-tab">
+          <div class="history-actions">
+            <button id="export-history" class="action-button">
+              <span class="action-icon export-icon"></span>
+              Export
+            </button>
+            <button id="clear-history" class="action-button">
+              <span class="action-icon clear-icon"></span>
+              Clear
+            </button>
+          </div>
+          
+          <div id="history-list" class="detection-list">
+            <div class="empty-state">No detection history</div>
+          </div>
+        </div>
+        
+        <!-- Settings Tab -->
+        <div class="tab-pane" id="settings-tab">
+          <div class="setting-group">
+            <label for="threshold-slider">Detection Threshold</label>
+            <div class="threshold-control">
+              <input type="range" id="threshold-slider" min="50" max="95" value="80" step="5">
+              <span id="threshold-value">80%</span>
+            </div>
+            <p class="setting-description">
+              Higher values will only detect text with greater similarity.
+            </p>
+          </div>
+          
+          <div class="setting-group">
+            <label class="setting-label">Notification Style</label>
+            <div class="radio-options">
+              <label class="radio-label">
+                <input type="radio" name="notification-style" value="detailed" checked>
+                <span class="radio-text">Detailed</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="notification-style" value="minimal">
+                <span class="radio-text">Minimal</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="setting-group">
+            <label class="setting-label">Auto-hide Notifications</label>
+            <div class="radio-options">
+              <label class="radio-label">
+                <input type="radio" name="notification-hide" value="10" checked>
+                <span class="radio-text">After 10s</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="notification-hide" value="0">
+                <span class="radio-text">Never</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="#" id="help-link">Help</a>
+        <a href="#" id="feedback-link">Feedback</a>
+        <a href="#" id="privacy-link">Privacy</a>
+      </div>
+      <div class="version">v1.0.0</div>
+    </footer>
+  </div>
+  
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
